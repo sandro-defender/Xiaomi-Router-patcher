@@ -45,15 +45,15 @@ def show_language_menu():
     print()
     print("=" * 58)
     print()
-    print("Language / 语言 / Язык")
+    print("Language")
     print()
     print(" 1 - English")
-    print(" 2 - 中文 (Chinese)")
-    print(" 3 - Русский (Russian)")
+    print(" 2 - Chinese")
+    print(" 3 - Russian")
     print()
     
     while True:
-        choice = input("Select language [1-English, 2-中文, 3-Русский]: ").strip()
+        choice = input("Select language [1-English, 2-Chinese, 3-Russian]: ").strip()
         if choice == '1':
             set_language('en')
             return 'en'
