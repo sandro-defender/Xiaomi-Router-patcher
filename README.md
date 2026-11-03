@@ -568,8 +568,26 @@ Xiaomi-Router-patcher/
 │   └── *.po             # Language pack files
 ├── bootloader/          # Bootloader files
 ├── firmware/            # Firmware storage directory
-└── python/              # Bundled Python for Windows
+├── python/              # Bundled Python for Windows
+├── xmir_patcher.py      # Entry point (also used for the .exe build)
+├── xmir_patcher.spec    # PyInstaller spec for the standalone build
+└── build_exe.py/.bat    # Standalone .exe builder
 ```
+
+### Building a Standalone .exe
+
+The scripts can be compiled into a standalone executable with PyInstaller:
+
+```bat
+build_exe.bat            REM Windows: installs dependencies and builds
+python build_exe.py      REM or directly; add --onefile for a single-file exe
+```
+
+The default **onedir** build produces `dist\XMiR-Patcher\XMiR-Patcher.exe`
+together with all helper scripts and the `data/`, `firmware/`, `bootloader/`,
+`kmod/` and `image/` folders (plus a `XMiR-Patcher.bat` launcher), so it behaves
+exactly like `run.bat` from the repository root. Run the .exe with a script name
+as argument to skip the menu, e.g. `XMiR-Patcher.exe read_info.py`.
 
 ### Core Module Description
 

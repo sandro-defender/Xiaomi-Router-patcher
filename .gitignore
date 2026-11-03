@@ -1,4 +1,6 @@
 venv/
+build/
+dist/
 __pycache__/
 xmir_base/__pycache__/
 data/
